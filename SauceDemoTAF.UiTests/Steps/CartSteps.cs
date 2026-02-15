@@ -26,15 +26,6 @@ namespace SauceDemoTAF.UiTests.Steps
             Assert.That(actualProducts.Count(), Is.EqualTo(expectedProducts.Count()));
 
             Assert.That(actualProducts, Is.EquivalentTo(expectedProducts));
-
-            //Assert.Multiple(() =>
-            //{
-            //    foreach (var expected in expectedProducts) 
-            //    { 
-            //        Assert.That(actualProducts.Contains(expected), $"Expected product '{expected}' was not found in the cart."); 
-            //    }
-            //});
         }
-
     }
 }
