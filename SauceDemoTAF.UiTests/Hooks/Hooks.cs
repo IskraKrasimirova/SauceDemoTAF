@@ -1,17 +1,15 @@
 ﻿using OpenQA.Selenium;
 using Reqnroll;
 
-namespace SeleniumTestFramework.UiTests.Hooks
+namespace SauceDemoTAF.UiTests.Hooks
 {
     [Binding]
     public class Hooks
     {
         private readonly IWebDriver _driver;
-        private readonly ScenarioContext _scenarioContext;
 
-        public Hooks(ScenarioContext scenarioContext, IWebDriver driver)
+        public Hooks(IWebDriver driver)
         {
-            _scenarioContext = scenarioContext;
             _driver = driver;
         }
 

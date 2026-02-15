@@ -1,4 +1,4 @@
-﻿namespace SeleniumTestFramework.UiTests.Models.Factories
+﻿namespace SauceDemoTAF.UiTests.Models.Factories
 {
     public interface IUserFactory
     {

@@ -2,15 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Reqnroll.Microsoft.Extensions.DependencyInjection;
-using SeleniumTestFramework.UiTests.Models.Builders;
-using SeleniumTestFramework.UiTests.Models.Factories;
-using SeleniumTestFramework.UiTests.Pages;
+using SauceDemoTAF.UiTests.Models.Builders;
+using SauceDemoTAF.UiTests.Models.Factories;
+using SauceDemoTAF.UiTests.Pages;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using WebDriverManager.Helpers;
-using ConfigurationManager = SeleniumTestFramework.UiTests.Utilities.ConfigurationManager;
+using ConfigurationManager = SauceDemoTAF.UiTests.Utilities.ConfigurationManager;
 
-namespace SeleniumTestFramework.UiTests.Hooks
+namespace SauceDemoTAF.UiTests.Hooks
 {
     public class DependencyContainer
     {
@@ -51,11 +51,7 @@ namespace SeleniumTestFramework.UiTests.Hooks
                 return new LoginPage(driver);
             });
 
-            // Short syntax for registering page classes
-            //services.AddScoped<LoginPage>();
-            //services.AddScoped<DashboardPage>();
-            //services.AddScoped<RegisterPage>();
-            //services.AddScoped<UsersPage>();
+            services.AddScoped<ProductsPage>();
         }
     }
 }

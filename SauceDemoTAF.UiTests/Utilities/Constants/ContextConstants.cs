@@ -1,4 +1,4 @@
-﻿namespace SeleniumTestFramework.UiTests.Utilities.Constants
+﻿namespace SauceDemoTAF.UiTests.Utilities.Constants
 {
     public class ContextConstants
     {

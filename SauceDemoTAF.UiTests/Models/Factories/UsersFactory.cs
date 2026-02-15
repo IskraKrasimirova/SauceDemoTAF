@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using Bogus.Extensions;
 
-namespace SeleniumTestFramework.UiTests.Models.Factories
+namespace SauceDemoTAF.UiTests.Models.Factories
 {
     public class UsersFactory : IUserFactory
     {

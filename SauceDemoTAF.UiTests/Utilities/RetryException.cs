@@ -1,4 +1,4 @@
-﻿namespace SeleniumTestFramework.UiTests.Utilities
+﻿namespace SauceDemoTAF.UiTests.Utilities
 {
     public class RetryException: Exception
     {

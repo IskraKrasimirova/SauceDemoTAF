@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace SeleniumTestFramework.UiTests.Pages
+namespace SauceDemoTAF.UiTests.Pages
 {
     public abstract class BasePage
     {

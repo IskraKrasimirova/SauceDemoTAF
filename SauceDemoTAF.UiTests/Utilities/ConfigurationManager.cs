@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
-using SeleniumTestFramework.UiTests.Models;
+using SauceDemoTAF.UiTests.Models;
 
-namespace SeleniumTestFramework.UiTests.Utilities
+namespace SauceDemoTAF.UiTests.Utilities
 {
     public class ConfigurationManager
     {

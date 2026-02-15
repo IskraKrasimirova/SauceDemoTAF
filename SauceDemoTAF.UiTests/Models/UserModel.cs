@@ -1,4 +1,4 @@
-﻿namespace SeleniumTestFramework.UiTests.Models
+﻿namespace SauceDemoTAF.UiTests.Models
 {
     public class UserModel
     {
