@@ -11,10 +11,26 @@ namespace SauceDemoTAF.UiTests.Pages
 
         private IReadOnlyCollection<IWebElement> ProductItems => _driver.FindElements(By.XPath("//div[@class='inventory_item']"));
 
+        private IWebElement CartLink => _driver.FindElement(By.XPath("//a[@class='shopping_cart_link']"));
         private IWebElement AppLogo => _driver.FindElement(By.XPath("//div[@class='app_logo' and contains(text(),'Swag Labs')]"));
 
         public ProductsPage(IWebDriver driver) : base(driver)
         {
+        }
+
+        public int GetProductsCount => ProductItems.Count;
+
+        public void AddProductToCartByIndex(int index)
+        {
+            var product = ProductItems.ElementAt(index);
+            var addButton = product.FindElement(By.XPath(".//button[text()='Add to cart']"));
+            _driver.ScrollAndClickJs(addButton);
+        }
+
+        public CartPage GoToCart()
+        {
+            _driver.ScrollAndClickJs(CartLink);
+            return new CartPage(_driver);
         }
 
         public void VerifyIsAtProductsPage()

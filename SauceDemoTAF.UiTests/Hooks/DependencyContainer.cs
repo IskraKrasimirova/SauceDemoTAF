@@ -28,6 +28,22 @@ namespace SauceDemoTAF.UiTests.Hooks
             {
                 new DriverManager().SetUpDriver(new ChromeConfig(), VersionResolveStrategy.MatchingBrowser);
 
+                //var options = new ChromeOptions();
+
+                //// Disable password manager completely
+                //options.AddUserProfilePreference("credentials_enable_service", false);
+                //options.AddUserProfilePreference("profile.password_manager_enabled", false);
+
+                //// Disable all password-related popups
+                //options.AddArgument("--disable-save-password-bubble"); 
+                //options.AddArgument("--disable-features=PasswordManagerOnboarding,PasswordManagerRedesign"); 
+                //options.AddArgument("--disable-features=PasswordLeakDetection");
+
+                //// Optional but recommended
+                //options.AddArgument("--disable-notifications");
+
+                //var driver = new ChromeDriver(options);
+
                 var driver = new ChromeDriver();
                 driver.Manage().Window.Maximize();
                 driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
@@ -52,6 +68,7 @@ namespace SauceDemoTAF.UiTests.Hooks
             });
 
             services.AddScoped<ProductsPage>();
+            //services.AddScoped<CartPage>();
         }
     }
 }

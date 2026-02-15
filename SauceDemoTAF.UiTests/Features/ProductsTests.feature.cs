@@ -141,38 +141,42 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.AndAsync("I add the last product to the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
                 global::Reqnroll.Table table1 = new global::Reqnroll.Table(new string[] {
+                            "Product"});
+                table1.AddRow(new string[] {
                             "Sauce Labs Backpack"});
                 table1.AddRow(new string[] {
                             "Test.allTheThings() T-Shirt (Red)"});
 #line 10
  await testRunner.AndAsync("I verify the correct products are added to the cart:", ((string)(null)), table1, "And ");
 #line hidden
-#line 13
+#line 14
  await testRunner.AndAsync("I remove the first item from the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 14
+#line 15
  await testRunner.AndAsync("I add previous to the last product to the cart", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
                 global::Reqnroll.Table table2 = new global::Reqnroll.Table(new string[] {
+                            "Product"});
+                table2.AddRow(new string[] {
                             "Test.allTheThings() T-Shirt (Red)"});
                 table2.AddRow(new string[] {
                             "Sauce Labs Onesie"});
-#line 15
+#line 16
  await testRunner.AndAsync("I verify the correct products are added to the cart:", ((string)(null)), table2, "And ");
 #line hidden
-#line 18
+#line 20
  await testRunner.AndAsync("I go to checkout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 21
  await testRunner.AndAsync("I finish the order", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 20
+#line 22
  await testRunner.ThenAsync("the order should be successfully placed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
-#line 21
+#line 23
  await testRunner.AndAsync("the cart should be empty", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 24
  await testRunner.AndAsync("I should be able to logout successfully", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
