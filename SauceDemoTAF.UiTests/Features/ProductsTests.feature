@@ -18,7 +18,7 @@ Scenario: User completes a purchase after modifying the cart items
 		| Test.allTheThings() T-Shirt (Red) |
 		| Sauce Labs Onesie                 |
 	And I go to checkout
-	And I finish the order
+	And I finish the checkout
 	Then the order should be successfully placed
 	And the cart should be empty
 	And I should be able to logout successfully

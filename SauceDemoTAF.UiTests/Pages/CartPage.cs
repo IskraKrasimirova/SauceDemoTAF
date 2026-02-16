@@ -31,9 +31,27 @@ namespace SauceDemoTAF.UiTests.Pages
             //return productNames;
 
             var productNames = _driver.FindElements(By.XPath("//div[@class='inventory_item_name']"))
-                .Select(e => e.Text.Trim());
+                .Select(e => e.Text.Trim())
+                .ToList();
 
             return productNames;
+        }
+
+        public void RemoveCartItemByIndex(int index)
+        {
+            var cartItem = CartItems.ElementAt(index);
+            var removeButton = cartItem.FindElement(By.XPath(".//button[text()='Remove']"));
+            removeButton.Click();
+        }
+
+        public void GoToProducts()
+        {
+            _driver.ScrollAndClickJs(ContinueButton);
+        }
+
+        public void GoToCheckoutPage()
+        {
+            _driver.ScrollAndClickJs(CheckoutButton);
         }
 
         public void VerifyIsAtCartPage()
@@ -52,7 +70,12 @@ namespace SauceDemoTAF.UiTests.Pages
 
         public void VerifyCartIsNotEmpty()
         {
-            Assert.That(CartItems.Count, Is.GreaterThan(0), "Cart is empty.");
+            Assert.That(CartItems, Is.Not.Empty, "Cart is empty.");
+        }
+
+        public void VerifyCartIsEmpty()
+        {
+            Assert.That(CartItems, Is.Empty, "Cart should be empty.");
         }
     }
 }

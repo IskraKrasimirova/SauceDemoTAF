@@ -11,50 +11,27 @@
 
         public UserBuilder WithDefaultValues()
         {
-            _userModel.Title = "Mr.";
+            
             _userModel.FirstName = "John";
-            _userModel.Surname = "Doe";
-            _userModel.Email = $"john.doe{Guid.NewGuid()}@example.com";
-            _userModel.Password = "SecureP@ssw0rd";
-            _userModel.Country = "USA";
-            _userModel.City = "New York";
+            _userModel.LastName = "Doe";
+            _userModel.PostalCode = "1000";
 
             return this;
         }
 
-        public UserBuilder WithTitle(string title)
-        {
-            _userModel.Title = title;
-            return this;
-        }
         public UserBuilder WithFirstName(string firstName)
         {
             _userModel.FirstName = firstName;
             return this;
         }
-        public UserBuilder WithSurname(string surname)
+        public UserBuilder WithLastName(string lastName)
         {
-            _userModel.Surname = surname;
+            _userModel.LastName = lastName;
             return this;
         }
-        public UserBuilder WithEmail(string email)
+        public UserBuilder WithPostalCode(string postalCode)
         {
-            _userModel.Email = email;
-            return this;
-        }
-        public UserBuilder WithPassword(string password)
-        {
-            _userModel.Password = password;
-            return this;
-        }
-        public UserBuilder WithCountry(string country)
-        {
-            _userModel.Country = country;
-            return this;
-        }
-        public UserBuilder WithCity(string city)
-        {
-            _userModel.City = city;
+            _userModel.PostalCode = postalCode;
             return this;
         }
 

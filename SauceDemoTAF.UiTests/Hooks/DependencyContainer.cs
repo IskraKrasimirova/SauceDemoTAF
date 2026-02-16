@@ -52,7 +52,11 @@ namespace SauceDemoTAF.UiTests.Hooks
             });
 
             services.AddScoped<ProductsPage>();
-            //services.AddScoped<CartPage>();
+            services.AddScoped<CartPage>();
+            services.AddScoped<CheckoutPage>();
+            services.AddScoped<OrderPage>();
+            services.AddScoped<OrderConfirmationPage>();
+            services.AddScoped<PrimaryHeaderPage>();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace SauceDemoTAF.UiTests.Pages
         private IReadOnlyCollection<IWebElement> ProductItems => _driver.FindElements(By.XPath("//div[@class='inventory_item']"));
 
         private IWebElement CartLink => _driver.FindElement(By.XPath("//a[@class='shopping_cart_link']"));
-        private IWebElement AppLogo => _driver.FindElement(By.XPath("//div[@class='app_logo' and contains(text(),'Swag Labs')]"));
 
         public ProductsPage(IWebDriver driver) : base(driver)
         {
@@ -27,10 +26,9 @@ namespace SauceDemoTAF.UiTests.Pages
             _driver.ScrollAndClickJs(addButton);
         }
 
-        public CartPage GoToCart()
+        public void GoToCart()
         {
             _driver.ScrollAndClickJs(CartLink);
-            return new CartPage(_driver);
         }
 
         public void VerifyIsAtProductsPage()
@@ -42,6 +40,19 @@ namespace SauceDemoTAF.UiTests.Pages
                 Assert.That(ProductsTitle.Displayed, "Title is not visible.");
                 Assert.That(ProductsList.Displayed, "Products list is not visible.");
                 Assert.That(ProductItems.Count, Is.GreaterThan(0), "No products found on the Products page.");
+            });
+        }
+
+        public void VerifyProductIsAdded(int index)
+        {
+            var product = ProductItems.ElementAt(index);
+            var addButtons = product.FindElements(By.XPath(".//button[text()='Add to cart']"));
+            var removeButtons = product.FindElements(By.XPath(".//button[text()='Remove']"));
+
+            Assert.Multiple(() =>
+            {
+                Assert.That(addButtons.Count, Is.EqualTo(0));
+                Assert.That(removeButtons.Count, Is.EqualTo(1));
             });
         }
     }

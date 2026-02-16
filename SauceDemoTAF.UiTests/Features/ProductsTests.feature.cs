@@ -168,7 +168,7 @@ this.ScenarioInitialize(scenarioInfo, ruleInfo);
  await testRunner.AndAsync("I go to checkout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 21
- await testRunner.AndAsync("I finish the order", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+ await testRunner.AndAsync("I finish the checkout", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
 #line 22
  await testRunner.ThenAsync("the order should be successfully placed", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
