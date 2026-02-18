@@ -2,7 +2,7 @@
 
 namespace SauceDemoTAF.UiTests.Pages
 {
-    public class PrimaryHeaderPage : BasePage
+    public class HeaderComponent : BasePage
     {
         private IWebElement MenuButton => _driver.FindElement(By.XPath("//button[@id='react-burger-menu-btn']"));
         private IWebElement AppLogo => _driver.FindElement(By.XPath("//div[@class='app_logo' and contains(text(),'Swag Labs')]"));
@@ -10,7 +10,7 @@ namespace SauceDemoTAF.UiTests.Pages
         private IWebElement LogoutLink => _driver.FindElement(By.XPath("//a[@id='logout_sidebar_link']"));
         private IReadOnlyCollection<IWebElement> NavigationList => _driver.FindElements(By.XPath("//nav[@class='bm-item-list']/a"));
 
-        public PrimaryHeaderPage(IWebDriver driver) : base(driver)
+        public HeaderComponent(IWebDriver driver) : base(driver)
         {
         }
 

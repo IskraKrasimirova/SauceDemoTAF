@@ -56,7 +56,7 @@ namespace SauceDemoTAF.UiTests.Hooks
             services.AddScoped<CheckoutPage>();
             services.AddScoped<OrderPage>();
             services.AddScoped<OrderConfirmationPage>();
-            services.AddScoped<PrimaryHeaderPage>();
+            services.AddScoped<HeaderComponent>();
         }
     }
 }
