@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SauceDemoTAF.UiTests.Utilities;
 using SauceDemoTAF.UiTests.Utilities.Extensions;
 
 namespace SauceDemoTAF.UiTests.Pages
@@ -12,6 +14,9 @@ namespace SauceDemoTAF.UiTests.Pages
         private IReadOnlyCollection<IWebElement> ProductItems => _driver.FindElements(By.XPath("//div[@class='inventory_item']"));
 
         private IWebElement CartLink => _driver.FindElement(By.XPath("//a[@class='shopping_cart_link']"));
+
+        private IWebElement SortingDropdown => _driver.FindElement(By.XPath("//select[@class='product_sort_container']"));
+
 
         public ProductsPage(IWebDriver driver) : base(driver)
         {
@@ -29,6 +34,32 @@ namespace SauceDemoTAF.UiTests.Pages
         public void GoToCart()
         {
             _driver.ScrollAndClickJs(CartLink);
+        }
+
+        public void SelectSorting(string optionText)
+        {
+            var select = new SelectElement(SortingDropdown);
+            select.SelectByText(optionText);
+
+            Retry.Until(() =>
+            {
+                var options = new SelectElement(SortingDropdown).Options;
+                if (options.Count == 0)
+                    throw new Exception("Sorting dropdown still empty");
+            });
+        }
+
+        public List<decimal> GetItemsPrices()
+        {
+            var prices = new List<decimal>();
+
+            foreach (var item in ProductItems)
+            {
+                var priceText = item.FindElement(By.XPath(".//div[@class='inventory_item_price']")).Text.Trim().Replace("$", "");
+                prices.Add(decimal.Parse(priceText));
+            }
+
+            return prices;
         }
 
         public void VerifyIsAtProductsPage()

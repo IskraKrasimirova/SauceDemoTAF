@@ -22,3 +22,11 @@ Scenario: User completes a purchase after modifying the cart items
 	Then the order should be successfully placed
 	And the cart should be empty
 	And I should be able to logout successfully
+
+
+Scenario: Sorting products by Price (high to low) sorts the items correctly
+	Given I am logged in as standard user
+	When I select sorting by Price (high to low)
+	Then the products should be sorted by price in descending order
+	And I should be able to logout successfully
+
